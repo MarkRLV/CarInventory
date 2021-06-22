@@ -1,0 +1,59 @@
+﻿@model CarInventory.Models.CarRecord
+@{
+    ViewData["Title"] = "EditCarInventory";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit Car Inventory</title>
+</head>
+
+<body style="background-color: lightgray">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <h1>Edit Car Inventory</h1>
+        <table>
+            <tr>
+                <td>RecordNumber</td>
+                <td>@Html.TextBoxFor(m => m.RecordID, new { @readonly = "readonly" })</td>
+            </tr>
+            <tr>
+                <td>Model Year</td>
+                <td>@Html.TextBoxFor(m => m.ModelYear)</td>
+            </tr>
+            <tr>
+                <td>Make</td>
+                <td>@Html.TextBoxFor(m => m.Make)</td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td>@Html.TextBoxFor(m => m.Model)</td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td>@Html.DropDownListFor(m => m.Color, new[]
+                    {
+                        new SelectListItem() { Text = "RED", Value = "RED" },
+                        new SelectListItem() { Text = "BLUE", Value = "BLUE" },
+                        new SelectListItem() { Text = "GREEN", Value = "GREEN" },
+                        new SelectListItem() { Text = "PURPLE", Value = "PURPLE" },
+                     }, "Choose a Color")
+                     </td>
+            </tr>
+            <tr>
+                <td>Date Received</td>
+                <td>@Html.TextBoxFor(m => m.DateReceived)</td>
+            </tr>
+            <tr>
+                <td>Remarks</td>
+                <td>@Html.TextBoxFor(m => m.Remarks)</td>
+            </tr>
+        </table>
+        <br />
+        <p><input type="submit" value="Update Record" /></p>
+    }
+</body>
+</html>
+

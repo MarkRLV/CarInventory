@@ -1,0 +1,23 @@
+﻿@model CarInventory.Models.CarRecord
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Home Page</title>
+</head>
+
+<body style="background-color: lightgray">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <h1>Car Inventory</h1>
+        <p>Enter A Record Number:&nbsp;&nbsp;@Html.TextBoxFor(m => m.RecordID)</p>
+        <p>@Html.ValidationMessage("VMessage")</p>
+        <p><input type="submit" value="Find Record" /></p>
+    }
+</body>
+</html>
